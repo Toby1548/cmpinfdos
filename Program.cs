@@ -372,7 +372,15 @@ class Program
                 if (string.IsNullOrWhiteSpace(sel.Name)) return 0;
                 string format = $"F{sel.DecimalPlaces}";
                 if (values.TryGetValue(sel.GetContextFrameKey(), out var val))
-                    return val.ToString(format, System.Globalization.CultureInfo.InvariantCulture).Length;
+                {
+                    float displayVal = val;
+                    if (string.Equals(sel.Type, "SmallData", StringComparison.OrdinalIgnoreCase)
+                        && (sel.Suffix ?? string.Empty).Trim().Equals("GB", StringComparison.OrdinalIgnoreCase))
+                    {
+                        displayVal = val / 1024f;
+                    }
+                    return displayVal.ToString(format, System.Globalization.CultureInfo.InvariantCulture).Length;
+                }
                 else
                     return 1; // "-"
             });
@@ -387,7 +395,13 @@ class Program
                     string valueStr;
                     if (values.TryGetValue(sel.GetContextFrameKey(), out var val))
                     {
-                        valueStr = val.ToString(format, System.Globalization.CultureInfo.InvariantCulture);
+                        float displayVal = val;
+                        if (string.Equals(sel.Type, "SmallData", StringComparison.OrdinalIgnoreCase)
+                            && (sel.Suffix ?? string.Empty).Trim().Equals("GB", StringComparison.OrdinalIgnoreCase))
+                        {
+                            displayVal = val / 1024f;
+                        }
+                        valueStr = displayVal.ToString(format, System.Globalization.CultureInfo.InvariantCulture);
                     }
                     else
                     {
