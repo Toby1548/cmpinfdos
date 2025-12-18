@@ -1,3 +1,9 @@
+#This is a fork!
+
+I forked this for my own personal use and edits if anyone else wants the changes I made
+
+
+
 # CmpInf - Replacement for SteelSeries System Monitor App  
 
 Need help? Try the specialised custom ChatGPT GPT: [CmpInf - Support Chat](https://chatgpt.com/g/g-68641753205881918fcb09f3d3331c55-cmpinf-support-chat)  
