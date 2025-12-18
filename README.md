@@ -1,6 +1,7 @@
 # This is a fork!
 
-I forked this for my own personal use and edits if anyone else wants the changes I made
+I forked this for my own personal use and edits if anyone else wants the changes I made.
+
 below is the readme from the original fork.
 
 
